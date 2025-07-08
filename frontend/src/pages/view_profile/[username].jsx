@@ -40,7 +40,7 @@ export default function ViewProfilePage ({userProfile})  {
 
 
     useEffect(()=>{
-        console.log(authState.connections, userProfile.userId._id)
+        // console.log(authState.connections, userProfile.userId._id)
 
         if(authState.connections.some(user => user.connectionId._id === userProfile.userId._id)){
             setIsCurrentUserInConnection(true)
