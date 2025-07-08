@@ -1,0 +1,41 @@
+.container{
+    padding: 1.2rem;
+}
+
+.navBar{
+    padding-block: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+}
+
+.navBarOptionContainer{
+    display: flex;
+    align-items: center;
+}
+
+
+.buttonJoin{
+    background: #cd8987;
+    border-radius: 10px;
+    padding-block: 0.6rem;
+    padding-inline: 1.2rem;
+    font-size: 0.7rem;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.logoutBtn{
+    font-weight:bold;
+    cursor:pointer;
+    color:#CD8987;
+    border:1px solid #CD8987;
+    padding-block: 0.5rem;
+    padding-inline: 1rem; 
+    border-radius: 5px;
+    text-align: center;
+    align-items: center;
+    margin-top: -4%;
+}

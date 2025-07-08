@@ -1,0 +1,68 @@
+POST http://localhost:9090/register HTTP/1.1
+content-Type: application/json
+
+{
+  "username": "newuser",
+  "password": "newuser",
+  "email": "newuser@gmail.com",
+  "name": "New User"
+}
+
+###
+POST http://localhost:9090/register HTTP/1.1
+content-Type: application/json
+
+{
+  "username": "newuser2",
+  "password": "newuser2",
+  "email": "newuser2@gmail.com",
+  "name": "New User2"
+}
+
+###
+
+POST http://localhost:9090/login HTTP/1.1
+content-Type: application/json
+
+{
+  "email": "newuser2@gmail.com",
+  "password": "newuser2"
+}
+
+
+###
+GET http://localhost:9090/get_user_and_profile HTTP/1.1
+content-Type: application/json
+
+{
+  "token": "1c43cb4d1a727554b992da480892052a52a9eee39ac2f6d9de99fbd72808c75b"
+}
+
+
+###
+POST http://localhost:9090/update_profile_data
+content-Type: application/json
+
+{
+  "token": "1c43cb4d1a727554b992da480892052a52a9eee39ac2f6d9de99fbd72808c75b",
+  "bio": "Hey My self Anushka , I am from prayagraj, I work in XYZ Company",
+  "currentPost" : "CTO",
+  "pastWork" :[
+    {
+      "company": "Tech Company",
+      "position": "Software Engineer",
+      "years": "2+"
+    }
+  ],
+  "education" :[
+    {
+      "school": "Tech University",
+      "degree": "Bachelor of Science in Computer Science",
+      "fieldOfStudy": "2015-2019"
+    }
+  ]
+}
+
+
+###
+GET http://localhost:9090/user/get_all_users
