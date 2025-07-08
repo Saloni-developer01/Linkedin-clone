@@ -182,7 +182,7 @@ export default function ViewProfilePage ({userProfile})  {
 export async function getServerSideProps(context){
 
     console.log("From View")
-    console.log(context.query.username)
+    // console.log(context.query.username)
 
     const request  = await clientServer.get("/user/get_profile_based_on_username", {
         params:{
@@ -191,7 +191,7 @@ export async function getServerSideProps(context){
     })
 
     const response = await request.data;
-    console.log(response)
+    // console.log(response)
 
     return {props:{userProfile: request.data.profile}}
 }
