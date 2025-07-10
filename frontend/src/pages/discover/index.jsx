@@ -29,11 +29,14 @@ export default function Discoverpage() {
           <h1>Discover</h1>
 
           <div className={styles.allUserProfile}>
-            {authState.all_profiles_fetched && authState.all_users.map((user)=>{ // all_users comming from authReducer/index.js from initialState
+            {authState.all_profiles_fetched && authState.all_users.filter(user => user && user.userId && user.userId.name).map((user)=>{ // all_users comming from authReducer/index.js from initialState
+  
               return(
+               
                 <div onClick={() => {
                   router.push(`/view_profile/${user.userId.username}`)
                 }} key={user._id} className={styles.userCard}>
+                  
                   <img className={styles.userCard__image} src={`${BASE_URL}/${user.userId.profilePicture}`} alt="profile"/>
                   <div>
                     <h1>{user.userId.name}</h1>
