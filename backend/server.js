@@ -18,6 +18,10 @@ app.use(express.static("uploads")); // This will serve the files in the uploads 
 // This will allow us to access the files in the uploads folder using the URL http://localhost:9090/filename
 
 
+app.get("/", (req, res) => { 
+    res.send("Server is running!"); 
+});
+
 const start = async () => {
 
     const connectDB = await mongoose.connect("mongodb+srv://LinkedinClone:LinkedinClone124@linkedinclonecluster.rccowgh.mongodb.net/?retryWrites=true&w=majority&appName=LinkedinCloneCluster");
