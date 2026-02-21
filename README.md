@@ -40,7 +40,8 @@ User Authentication: Secure Login and Signup functionality.</li>
 <h4>Explore the live version of the LinkedIn Clone here:</h4>
 https://linkedin-clone-seven-dusky.vercel.app/
 
-### 🔑 Environment Setup
+
+### Environment Setup 🔑
 Before running the project, you need to set up your environment variables:
 
 1. Create a `.env` file in the root directory.
@@ -49,7 +50,7 @@ Before running the project, you need to set up your environment variables:
    MONGO_URI=your_mongodb_atlas_connection_string
    PORT=9090
 
-### 🚀 Run via Docker
+### Run via Docker 🚀
 If you have Docker installed, just run:
 `docker-compose up`
 
