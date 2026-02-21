@@ -1,0 +1,96 @@
+# services:
+#   # 1. Frontend Service (Next.js)
+#   frontend:
+#     build:
+#       context: ./frontend
+#       dockerfile: Dockerfile
+#     ports:
+#       - "3000:3000"
+#     volumes:
+#       - ./frontend:/app
+#       - /app/node_modules
+#     environment:
+#       - NEXT_PUBLIC_API_URL=http://localhost:5000
+#     depends_on:
+#       - backend
+
+#   # 2. Backend Service (Node/Express)
+#   backend:
+#     build:
+#       context: ./backend
+#       dockerfile: Dockerfile
+#     ports:
+#       - "5000:5000"
+#     volumes:
+#       - ./backend:/app
+#       - /app/node_modules
+#     environment:
+#       - MONGO_URI=mongodb://mongodb:27017/proconnect
+#       - PORT=5000
+#     depends_on:
+#       - mongodb
+
+#   # 3. Database Service (MongoDB)
+#   mongodb:
+#     image: mongo:latest
+#     ports:
+#       - "27017:27017"
+#     volumes:
+#       - mongo-data:/data/db
+
+# volumes:
+#   mongo-data:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+services:
+  # Backend Service
+  backend:
+    build: ./backend
+    container_name: backend
+    ports:
+      - "9090:9090"
+    env_file:
+      - .env
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    networks:
+      - mern
+
+  # Frontend Service
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - mern
+
+networks:
+  mern:
+    driver: bridge
+

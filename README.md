@@ -39,3 +39,20 @@ User Authentication: Secure Login and Signup functionality.</li>
 <h3>Live Demo Link ⋆✴︎˚｡⋆</h3>
 <h4>Explore the live version of the LinkedIn Clone here:</h4>
 https://linkedin-clone-seven-dusky.vercel.app/
+
+### 🔑 Environment Setup
+Before running the project, you need to set up your environment variables:
+
+1. Create a `.env` file in the root directory.
+2. Add your MongoDB Atlas connection string:
+   ```env
+   MONGO_URI=your_mongodb_atlas_connection_string
+   PORT=9090
+
+### 🚀 Run via Docker
+If you have Docker installed, just run:
+`docker-compose up`
+
+The images will be automatically pulled from my Docker Hub:
+- Frontend: `saloniyadav29/linkedinclone-frontend`
+- Backend: `saloniyadav29/linkedinclone-backend`
