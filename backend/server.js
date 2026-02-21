@@ -22,12 +22,14 @@ app.get("/", (req, res) => {
     res.send("Server is running!"); 
 });
 
+const port = process.env.PORT || 9090;
+
 const start = async () => {
 
     const connectDB = await mongoose.connect(process.env.MONGO_URI);
 
-    app.listen(9090, () => {
-        console.log("Server is running on port 9090");
+    app.listen(port, () => {
+        console.log(`Server is running on port ${port}`);
     })
 }
 
