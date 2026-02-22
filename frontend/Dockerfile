@@ -1,30 +1,26 @@
-FROM node:24.11.0-alpine
+FROM node:20-alpine
 
 WORKDIR /app
 
-ENV HOSTNAME="0.0.0.0"
-
-# Ye line zaroori hai Next.js compiler errors fix karne ke liye
+# Linux compatibility ke liye zaroori libraries
 RUN apk add --no-cache libc6-compat
 
-COPY package*.json .
+# Network access ke liye zaroori
+ENV HOSTNAME="0.0.0.0"
 
+COPY package*.json ./
 RUN npm install
 
 COPY . .
 
-# Environment variable build time par pass karne ke liye
+# Build time par Backend URL set karein
 ARG NEXT_PUBLIC_BACKEND_URL
 ENV NEXT_PUBLIC_BACKEND_URL=$NEXT_PUBLIC_BACKEND_URL
 
+# Production build banayein (Ye binaries issue solve karega)
 RUN npm run build
 
 EXPOSE 3000
 
-CMD ["npm", "run", "dev"]
-
-# Stage 2: Serve with Nginx (Production standard)
-# FROM nginx:stable-alpine
-# COPY --from=build /app/dist /usr/share/nginx/html
-# EXPOSE 80
-# CMD ["nginx", "-g", "daemon off;"]
+# Production server start karein
+CMD ["npm", "start"]
