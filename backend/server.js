@@ -9,7 +9,11 @@ import userRoutes from "./routes/user.routes.js";
 dotenv.config();
 
 const app = express();
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: ["http://localhost:3000", "https://linkedin-clone-seven-dusky.vercel.app"], // Dono URLs hone chahiye
+  credentials: true
+}));
 app.use(express.json()); // esko routes kai uper rakhna zaruri hai taki register karte time request body ko parse kar sake undefined na ho req.body
 app.use(express.urlencoded());
 app.use(postsRoutes);
