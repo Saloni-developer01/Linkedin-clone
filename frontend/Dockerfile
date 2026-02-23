@@ -14,8 +14,8 @@ RUN npm install
 COPY . .
 
 # Build time par Backend URL set karein
-ARG NEXT_PUBLIC_BACKEND_URL
-ENV NEXT_PUBLIC_BACKEND_URL=$NEXT_PUBLIC_BACKEND_URL
+ARG NEXT_LOCAL_BACKEND_URL
+ENV NEXT_LOCAL_BACKEND_URL=$NEXT_LOCAL_BACKEND_URL
 
 # Production build banayein (Ye binaries issue solve karega)
 RUN npm run build
